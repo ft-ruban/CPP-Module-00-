@@ -1,38 +1,28 @@
 #include <iostream>
 #include "PhoneBook.class.hpp"
 
-void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t *nbr_contact, PhoneBook &PhoneBook)
+void add_prompt_user(std::string &prompt, std::string message)
 {
     prompt.clear();
     while(prompt.empty()){
-        std::cout<<"First name: "<<std::endl;
+        std::cout<<message<<std::endl;
         std::getline(std::cin, prompt);
     }
+}
+
+void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t *nbr_contact, PhoneBook &PhoneBook)
+{
+    add_prompt_user(prompt, "First name: ");
     PhoneBook.SetFirstName(prompt, *index_contact);
-    prompt.clear();
-    while(prompt.empty()){
-    std::cout<<"Nickname: "<<std::endl;
-    std::getline(std::cin, prompt);
-    }
+    add_prompt_user(prompt, "Nickname: ");
     PhoneBook.SetNickname(prompt, *index_contact);
-    prompt.clear();
-    while(prompt.empty()){
-        std::cout<<"Last name: "<<std::endl;
-        std::getline(std::cin, prompt);
-    }
+    add_prompt_user(prompt, "Last name: ");
     PhoneBook.SetLastName(prompt, *index_contact);
-    prompt.clear();
-    while(prompt.empty()){
-    std::cout<<"phone number: "<<std::endl;
-    std::getline(std::cin, prompt);
-    }
+    add_prompt_user(prompt, "Phone number: ");
     PhoneBook.SetPhoneNumber(prompt, *index_contact);
-    prompt.clear();
-    while(prompt.empty()){
-        std::cout<<"Darkest secret(o~o): "<<std::endl;
-        std::getline(std::cin, prompt);
-    }
+    add_prompt_user(prompt, "Darkest secret(o~o): ");
     PhoneBook.SetDarkestSecret(prompt, *index_contact);
+
     *index_contact = *index_contact + 1;
     if(*index_contact == 8)
         *index_contact = 0;
@@ -75,8 +65,7 @@ int main(void)
     std::cout<<"Welcome to Bananaphone"<<std::endl;
     PhoneBook PhoneBook;   
     while(!exit){
-        //std::cout<<"enter one of the following three commands(ADD, SEARCH, EXIT): "<<std::endl;
-        //std::cin >> prompt;
+        std::cout<<"enter one of the following three commands(ADD, SEARCH, EXIT): "<<std::endl;
         std::getline(std::cin, prompt);
         //std::cout<<prompt<<std::endl;
         if (prompt.compare("ADD") == 0){
@@ -89,6 +78,7 @@ int main(void)
         else if (prompt.compare("EXIT") == 0){
             exit = true;
         }
+        prompt.clear();
     }
     return(0);
 }
