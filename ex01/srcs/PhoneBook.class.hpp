@@ -11,32 +11,32 @@ class PhoneBook {       // The class
     void SetFirstName(std::string first_name, std::size_t contact){
       contact_list[contact].SetFirstName(first_name);
     }
-    void GetFirstName(void){
-      contact_list[0].GetFirstName();
+    std::string GetFirstName(std::size_t contact){
+      return(contact_list[contact].GetFirstName());
     }
     void SetNickname(std::string nickname, std::size_t contact){
       contact_list[contact].SetNickname(nickname);
     }
-    void GetNickname(void){
-      contact_list[0].GetNickname();
+    std::string GetNickname(std::size_t contact){
+      return(contact_list[contact].GetNickname());
     }
     void SetLastName(std::string last_name, std::size_t contact){
       contact_list[contact].SetLastName(last_name);
     }
-    void GetLastName(void){
-      contact_list[0].GetLastName();
+    std::string GetLastName(std::size_t contact){
+      return(contact_list[contact].GetLastName());
     }
-        void SetPhoneNumber(std::string phone_number, std::size_t contact){
+    void SetPhoneNumber(std::string phone_number, std::size_t contact){
       contact_list[contact].SetPhoneNumber(phone_number);
     }
-    void GetPhoneNumber(void){
-      contact_list[0].GetPhoneNumber();
+    std::string GetPhoneNumber(std::size_t contact){
+      return(contact_list[contact].GetPhoneNumber());
     }
     void SetDarkestSecret(std::string darkest_secret, std::size_t contact){
       contact_list[contact].SetDarkestSecret(darkest_secret);
     }
-    void GetDarkestSecret(void){
-      contact_list[0].GetDarkestSecret();
+    std::string GetDarkestSecret(std::size_t contact){
+      return(contact_list[contact].GetDarkestSecret());
     }
 
   private:
