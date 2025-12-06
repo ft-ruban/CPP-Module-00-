@@ -109,11 +109,11 @@ void print_informations(std::size_t selected_index, PhoneBook PhoneBook)
 
     //info = PhoneBook::GetFirstName(selected_index);
 
-    std::cout<<PhoneBook.GetFirstName(selected_index)<<std::endl;
-    std::cout<<PhoneBook.GetLastName(selected_index)<<std::endl;
-    std::cout<<PhoneBook.GetNickname(selected_index)<<std::endl;
-    std::cout<<PhoneBook.GetPhoneNumber(selected_index) <<std::endl;
-    std::cout<<PhoneBook.GetDarkestSecret(selected_index)<<std::endl;
+    std::cout<<"First name: "<<PhoneBook.GetFirstName(selected_index)<<std::endl;
+    std::cout<<"Last name: "<<PhoneBook.GetLastName(selected_index)<<std::endl;
+    std::cout<<"Nickname: "<<PhoneBook.GetNickname(selected_index)<<std::endl;
+    std::cout<<"Phone number: "<<PhoneBook.GetPhoneNumber(selected_index) <<std::endl;
+    std::cout<<"Darkest secret(o~o): "<<PhoneBook.GetDarkestSecret(selected_index)<<std::endl;
 }
 
 void ask_user_index(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook){
@@ -133,12 +133,9 @@ void ask_user_index(std::string prompt, std::size_t nbr_contact, PhoneBook Phone
                 break;
             }
         }
-        std::cout<<"fin du check nbr"<<std::endl;
-        std::cout<<prompt_is_invalid<<std::endl;
         if(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
             std::cout<<"Invalid index you have at the moment a total number of "<<nbr_contact << " phone contact, try again: "<<std::endl;
         }
-        std::cout<<"fin de la boucle"<<std::endl;
     }
     print_informations(converted_prompt-1, PhoneBook);
 }
