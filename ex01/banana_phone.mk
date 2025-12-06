@@ -1,10 +1,18 @@
 override SRCSDIR	:= srcs/
+override MAINDIR    :=
+override EXECDIR 	:= exec/
 
-override NAME := banana_phone
+#override NAME := banana_phone
+SRC += $(addprefix $(MAINDIR), $(addsuffix .cpp, $(MAIN)))
+SRC += $(addprefix $(EXECDIR), $(addsuffix .cpp, $(EXECSRC)))
 
-override BANANAPHONESRC := \
-	main \
-	PhoneBook.class \
-	Contact.class \
+override SRCS		= $(addprefix $(SRCSDIR), $(SRC))
 
-override SRCS := $(addprefix $(SRCSDIR)/, $(addsuffix .cpp, $(BANANAPHONESRC)))
+override MAIN := main \
+				 PhoneBook.class \
+				 Contact.class
+
+override EXECSRC := add \
+					exec \
+					exit \
+					search

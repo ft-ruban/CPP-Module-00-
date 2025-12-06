@@ -1,7 +1,7 @@
 NAME            := banana_phone
-EXEC			:= exec/$(NAME)
+EXEC			:= bin/$(NAME)
 OBJS_DIR        := .objs/
-EXEC_DIR        := exec/
+EXEC_DIR        := bin/
 
 CC              := c++ -Wall -Wextra -Werror
 CPP      		:= -std=c++98
