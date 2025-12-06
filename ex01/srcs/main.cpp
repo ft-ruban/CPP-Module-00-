@@ -1,6 +1,8 @@
 #include <iostream>
 #include "PhoneBook.class.hpp"
 #include <string>
+#include <sstream>
+//#include <stream>
 
 void add_prompt_user(std::string &prompt, std::string message)
 {
@@ -18,12 +20,12 @@ void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t 
     PhoneBook.SetFirstName(prompt, *index_contact);
     // std::cout<<PhoneBook.GetFirstName(0)<<std::endl;
 
+    add_prompt_user(prompt, "Last name: ");
+    PhoneBook.SetLastName(prompt, *index_contact);
+
     add_prompt_user(prompt, "Nickname: ");
     PhoneBook.SetNickname(prompt, *index_contact);
     // std::cout<<PhoneBook.GetNickname(0)<<std::endl;
-
-    add_prompt_user(prompt, "Last name: ");
-    PhoneBook.SetLastName(prompt, *index_contact);
 
     add_prompt_user(prompt, "Phone number: ");
     PhoneBook.SetPhoneNumber(prompt, *index_contact);
@@ -100,6 +102,47 @@ void search_contact(std::string prompt, std::size_t *index_contact, PhoneBook &P
     }
     std::cout<<"|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"<<std::endl;
 }
+
+void print_informations(std::size_t selected_index, PhoneBook PhoneBook)
+{
+    //std::string info = NULL;
+
+    //info = PhoneBook::GetFirstName(selected_index);
+
+    std::cout<<PhoneBook.GetFirstName(selected_index)<<std::endl;
+    std::cout<<PhoneBook.GetLastName(selected_index)<<std::endl;
+    std::cout<<PhoneBook.GetNickname(selected_index)<<std::endl;
+    std::cout<<PhoneBook.GetPhoneNumber(selected_index) <<std::endl;
+    std::cout<<PhoneBook.GetDarkestSecret(selected_index)<<std::endl;
+}
+
+void ask_user_index(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook){
+
+    std::size_t converted_prompt = 42;
+    bool prompt_is_invalid = true;
+
+    std::cout<<"Which index of the entry to display? :"<<std::endl;
+    while(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
+
+        prompt_is_invalid = false;
+        std::getline(std::cin, prompt);
+        std::stringstream(prompt) >> converted_prompt;
+        for (std::size_t i=0; i < prompt.length();i++){
+            if(isdigit(prompt[i]) == false){
+                prompt_is_invalid = true;
+                break;
+            }
+        }
+        std::cout<<"fin du check nbr"<<std::endl;
+        std::cout<<prompt_is_invalid<<std::endl;
+        if(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
+            std::cout<<"Invalid index you have at the moment a total number of "<<nbr_contact << " phone contact, try again: "<<std::endl;
+        }
+        std::cout<<"fin de la boucle"<<std::endl;
+    }
+    print_informations(converted_prompt-1, PhoneBook);
+}
+
 int main(void)
 {
     std::string prompt;
@@ -119,7 +162,9 @@ int main(void)
         }
         else if (prompt.compare("SEARCH") == 0){
             search_contact(prompt, &index_contact, PhoneBook, nbr_contact);
-            //prompt user sur l'index qu'il veut et afficher le contact en question
+            //TODO if no contact leave that place
+            //prompt user sur l'index qu'il veut et afficher le contact en question 
+            ask_user_index(prompt, nbr_contact, PhoneBook);
         }
         else if (prompt.compare("EXIT") == 0)
             exit = true;
