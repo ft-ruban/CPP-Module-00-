@@ -2,15 +2,18 @@
 
 static void display_asked_contact_info(std::size_t selected_index, PhoneBook PhoneBook)
 {
-    //std::string info = NULL;
-
-    //info = PhoneBook::GetFirstName(selected_index);
-
-    std::cout<<"First name: "<<PhoneBook.GetFirstName(selected_index)<<std::endl;
+    std::cout<<std::endl<<"First name: "<<PhoneBook.GetFirstName(selected_index)<<std::endl;
     std::cout<<"Last name: "<<PhoneBook.GetLastName(selected_index)<<std::endl;
     std::cout<<"Nickname: "<<PhoneBook.GetNickname(selected_index)<<std::endl;
     std::cout<<"Phone number: "<<PhoneBook.GetPhoneNumber(selected_index) <<std::endl;
-    std::cout<<"Darkest secret(o~o): "<<PhoneBook.GetDarkestSecret(selected_index)<<std::endl;
+    std::cout<<"Darkest secret(o~o): "<<PhoneBook.GetDarkestSecret(selected_index)<<std::endl<<std::endl;
+}
+
+static void display_header_phone_book(){
+    std::cout<<std::endl;
+    std::cout<<"               ♡／人◕ ‿‿ ◕人＼♡              "<<std::endl;
+    std::cout<<"|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"<<std::endl;
+    std::cout<<"|    index|first name| last name|  nickname|"<<std::endl;
 }
 
 void which_contact_info_to_print(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook){
@@ -18,9 +21,8 @@ void which_contact_info_to_print(std::string prompt, std::size_t nbr_contact, Ph
     std::size_t converted_prompt = 42;
     bool prompt_is_invalid = true;
 
-    std::cout<<"Which index of the entry to display? :"<<std::endl;
+    std::cout<<std::endl<<"Which index of the entry to display? :";
     while(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
-
         prompt_is_invalid = false;
         std::getline(std::cin, prompt);
         std::stringstream(prompt) >> converted_prompt;
@@ -30,9 +32,8 @@ void which_contact_info_to_print(std::string prompt, std::size_t nbr_contact, Ph
                 break;
             }
         }
-        if(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
-            std::cout<<"Invalid index you have at the moment a total number of "<<nbr_contact << " phone contact, try again: "<<std::endl;
-        }
+        if(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid)
+            std::cout<<"Invalid index you have at the moment a total number of "<<nbr_contact << " phone contact, try again: ";
     }
     display_asked_contact_info(converted_prompt-1, PhoneBook);
 }
@@ -55,33 +56,37 @@ static void print_info(std::string buffer, std::size_t sizeofprompt){
     std::cout<<"|";
 }
 
-void search_contact(std::string prompt, std::size_t *index_contact, PhoneBook &PhoneBook, std::size_t nbr_contact)
+static void no_contact_found()
 {
-    (void)prompt;
-    (void)*index_contact;
-    (void)PhoneBook;
+    std::cout<<"No contact have been found, SEARCH require the user to ADD at least a contact"<<std::endl;
+    std::cout<<"Returning to the main menu of Bananaphone"<<std::endl;
+    return;
+}
+
+void search_contact(std::string prompt, PhoneBook &phonebook, std::size_t total_contacts)
+{
     std::string buffer;
     std::size_t sizeofprompt;
-
     std::size_t i = 0;
-    //TODOif no contact print smth specific like NOCONTACTSFOUND
-    std::cout<<"|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"<<std::endl;
-    std::cout<<"|    index|first name| last name|  nickname|"<<std::endl;
-
-    while(nbr_contact > i) //au dessus ET egal?
-    {
-    std::cout<<"|        " << i+1 << "|"; //INDEX + |
-    buffer = PhoneBook.GetFirstName(i);
-    sizeofprompt = buffer.length();
-    print_info(buffer, sizeofprompt); //FAIRE FIRST NAME
-    buffer = PhoneBook.GetLastName(i); //TODO clean buffer?
-    sizeofprompt = buffer.length();
-    print_info(buffer, sizeofprompt);
-    buffer = PhoneBook.GetNickname(i); //TODO clean buffer?
-    sizeofprompt = buffer.length();
-    print_info(buffer, sizeofprompt);
-    std::cout<<std::endl;
+    
+    if(total_contacts == 0){
+        return(no_contact_found());
+    }
+    display_header_phone_book();
+    while(total_contacts > i){
+        std::cout<<"|        " << i+1 << "|";
+        buffer = phonebook.GetFirstName(i);
+        sizeofprompt = buffer.length();
+        print_info(buffer, sizeofprompt);
+        buffer = phonebook.GetLastName(i);
+        sizeofprompt = buffer.length();
+        print_info(buffer, sizeofprompt);
+        buffer = phonebook.GetNickname(i);
+        sizeofprompt = buffer.length();
+        print_info(buffer, sizeofprompt);
+        std::cout<<std::endl;
         i++;
     }
     std::cout<<"|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"<<std::endl;
+    which_contact_info_to_print(prompt, total_contacts, phonebook);
 }

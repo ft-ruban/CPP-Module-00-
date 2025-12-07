@@ -13,7 +13,7 @@ void prompt_user_loop(PhoneBook &phoneBook);
 void set_true_exit_bool(bool *exit_loop);
 
 //search.cpp
-void search_contact(std::string prompt, std::size_t *index_contact, PhoneBook &PhoneBook, std::size_t nbr_contact);
+void search_contact(std::string prompt, PhoneBook &PhoneBook, std::size_t nbr_contact);
 void which_contact_info_to_print(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook);
 
 #endif

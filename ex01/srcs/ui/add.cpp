@@ -4,12 +4,12 @@ static void add_prompt_user(std::string &prompt, std::string message){
 
     prompt.clear();
     while(prompt.empty()){
-        std::cout<<message<<std::endl;
+        std::cout<<message;
         std::getline(std::cin, prompt);
     }
 }
 
-void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t *nbr_contact, PhoneBook &PhoneBook){
+void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t *total_contacts, PhoneBook &PhoneBook){
 
     add_prompt_user(prompt, "First name: ");
     PhoneBook.SetFirstName(prompt, *index_contact);
@@ -27,8 +27,8 @@ void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t 
     PhoneBook.SetDarkestSecret(prompt, *index_contact);
     
     *index_contact = *index_contact + 1;
-    if (*index_contact > *nbr_contact)
-        *nbr_contact = *index_contact;
+    if (*index_contact > *total_contacts)
+        *total_contacts = *index_contact;
     if(*index_contact == 8)
         *index_contact = 0;
 }
