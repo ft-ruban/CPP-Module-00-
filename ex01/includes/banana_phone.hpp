@@ -6,12 +6,12 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 12:48:47 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 12:56:01 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/07 13:12:03 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BANANA_PHONE_H
-# define BANANA_PHONE_H
+#ifndef BANANA_PHONE_HPP
+# define BANANA_PHONE_HPP
 
 #include <iostream>
 #include "PhoneBook.class.hpp"

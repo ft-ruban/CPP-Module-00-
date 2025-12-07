@@ -6,12 +6,12 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 12:48:45 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 12:54:59 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/07 13:12:09 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#ifndef CONTACT_CLASS_HPP
+# define CONTACT_CLASS_HPP
 
 #include <iostream>
 
