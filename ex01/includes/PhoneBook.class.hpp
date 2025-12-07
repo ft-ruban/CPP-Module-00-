@@ -4,46 +4,46 @@
 #include "Contact.class.hpp"
 #include <iostream>
 
-class PhoneBook {       // The class
+class PhoneBook {
 
-  public:           // Access specifier
+  public:
 
-    PhoneBook( void ); //constructor
-    ~PhoneBook( void ); //destructor
+    PhoneBook( void );
+    ~PhoneBook( void );
     void SetFirstName(std::string first_name, std::size_t contact){
-      contact_list[contact].SetFirstName(first_name);
+      _contact_list[contact].SetFirstName(first_name);
     }
     std::string GetFirstName(std::size_t contact){
-      return(contact_list[contact].GetFirstName());
+      return(_contact_list[contact].GetFirstName());
     }
     void SetNickname(std::string nickname, std::size_t contact){
-      contact_list[contact].SetNickname(nickname);
+      _contact_list[contact].SetNickname(nickname);
     }
     std::string GetNickname(std::size_t contact){
-      return(contact_list[contact].GetNickname());
+      return(_contact_list[contact].GetNickname());
     }
     void SetLastName(std::string last_name, std::size_t contact){
-      contact_list[contact].SetLastName(last_name);
+      _contact_list[contact].SetLastName(last_name);
     }
     std::string GetLastName(std::size_t contact){
-      return(contact_list[contact].GetLastName());
+      return(_contact_list[contact].GetLastName());
     }
     void SetPhoneNumber(std::string phone_number, std::size_t contact){
-      contact_list[contact].SetPhoneNumber(phone_number);
+      _contact_list[contact].SetPhoneNumber(phone_number);
     }
     std::string GetPhoneNumber(std::size_t contact){
-      return(contact_list[contact].GetPhoneNumber());
+      return(_contact_list[contact].GetPhoneNumber());
     }
     void SetDarkestSecret(std::string darkest_secret, std::size_t contact){
-      contact_list[contact].SetDarkestSecret(darkest_secret);
+      _contact_list[contact].SetDarkestSecret(darkest_secret);
     }
     std::string GetDarkestSecret(std::size_t contact){
-      return(contact_list[contact].GetDarkestSecret());
+      return(_contact_list[contact].GetDarkestSecret());
     }
 
   private:
   
-    Contact contact_list[8];
+    Contact _contact_list[8];
 };
 
 

@@ -3,50 +3,50 @@
 
 #include <iostream>
 
-class Contact {       // The class
+class Contact {
 
-  public:           // Access specifier
+  public:
 
-    Contact( void ); //constructor
-    ~Contact( void ); //destructor
+    Contact( void );
+    ~Contact( void );
     void SetFirstName(std::string set_first_name){
-      first_name = set_first_name;
+      _first_name = set_first_name;
     }
     std::string GetFirstName(){
-      return(first_name);
+      return(_first_name);
     }
     void SetNickname(std::string set_nick_name){
-      nickname = set_nick_name;
+      _nickname = set_nick_name;
     }
     std::string GetNickname(){
-      return(nickname);
+      return(_nickname);
     }
     void SetLastName(std::string set_last_name){
-      last_name = set_last_name;
+      _last_name = set_last_name;
     }
     std::string GetLastName(){
-      return(last_name);
+      return(_last_name);
     }
     void SetPhoneNumber(std::string set_phone_number){
-      phone_number = set_phone_number;
+      _phone_number = set_phone_number;
     }
     std::string GetPhoneNumber(){
-      return(phone_number);
+      return(_phone_number);
     }
     void SetDarkestSecret(std::string set_darkest_secret){
-      darkest_secret = set_darkest_secret;
+      _darkest_secret = set_darkest_secret;
     }
     std::string GetDarkestSecret(){
-     return(darkest_secret);
+     return(_darkest_secret);
     }
   
 
   private:
-    std::string first_name;
-    std::string nickname;
-    std::string last_name;
-    std::string phone_number;
-    std::string darkest_secret;
+    std::string _first_name;
+    std::string _nickname;
+    std::string _last_name;
+    std::string _phone_number;
+    std::string _darkest_secret;
   };
 
 

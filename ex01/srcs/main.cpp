@@ -1,6 +1,16 @@
-#include "../includes/banana_phone.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/07 10:56:39 by ldevoude          #+#    #+#             */
+/*   Updated: 2025/12/07 10:56:40 by ldevoude         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-//TODO 1) voir si le nom de phoneBook est ok ou non
+#include "../includes/banana_phone.hpp"
 
 int main(void)
 {
