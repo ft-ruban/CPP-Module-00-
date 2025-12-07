@@ -12,7 +12,7 @@ override MAIN := main \
 				 PhoneBook.class \
 				 Contact.class
 
-override UISRC := add \
+override UISRC := 	add \
 					exit \
 					prompt \
 					search

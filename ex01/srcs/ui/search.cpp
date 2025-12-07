@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   search.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/07 12:35:51 by ldevoude          #+#    #+#             */
+/*   Updated: 2025/12/07 12:56:22 by ldevoude         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/ui.hpp"
+#include <sstream>
 
 static void display_asked_contact_info(std::size_t selected_index, PhoneBook PhoneBook)
 {
@@ -16,7 +29,7 @@ static void display_header_phone_book(){
     std::cout<<"|    index|first name| last name|  nickname|"<<std::endl;
 }
 
-void which_contact_info_to_print(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook){
+static void ask_contact_info(std::string prompt, std::size_t nbr_contact, PhoneBook PhoneBook){
 
     std::size_t converted_prompt = 42;
     bool prompt_is_invalid = true;
@@ -88,5 +101,5 @@ void search_contact(std::string prompt, PhoneBook &phonebook, std::size_t total_
         i++;
     }
     std::cout<<"|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|"<<std::endl;
-    which_contact_info_to_print(prompt, total_contacts, phonebook);
+    ask_contact_info(prompt, total_contacts, phonebook);
 }

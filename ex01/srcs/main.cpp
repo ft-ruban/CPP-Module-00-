@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 10:56:39 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 10:56:40 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/07 12:36:34 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main(void)
 {
-    PhoneBook phoneBook;
+    PhoneBook phonebook;
 
     std::cout<<"Welcome to Bananaphone"<<std::endl;
-    prompt_user_loop(phoneBook);
+    prompt_user_loop(phonebook);
     return(EXIT_SUCCESS);
 }
