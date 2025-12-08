@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 12:35:51 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 12:56:22 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/08 09:55:57 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ static void ask_contact_info(std::string prompt, std::size_t nbr_contact, PhoneB
     std::cout<<std::endl<<"Which index of the entry to display? :";
     while(converted_prompt > nbr_contact || converted_prompt == 0 || prompt_is_invalid){
         prompt_is_invalid = false;
-        std::getline(std::cin, prompt);
+        if (!std::getline(std::cin, prompt))
+            exit(1);
         std::stringstream(prompt) >> converted_prompt;
         for (std::size_t i=0; i < prompt.length();i++){
             if(isdigit(prompt[i]) == false){

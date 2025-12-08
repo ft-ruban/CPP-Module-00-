@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 12:48:38 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 12:55:21 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/08 09:55:43 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 # include "banana_phone.hpp"
+#include <stdlib.h>
 
 //add.cpp
 void add_in_contact(std::string prompt, std::size_t *index_contact, std::size_t *total_contacts, PhoneBook &PhoneBook);

@@ -6,7 +6,7 @@
 /*   By: ldevoude <ldevoude@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 12:35:42 by ldevoude          #+#    #+#             */
-/*   Updated: 2025/12/07 12:48:06 by ldevoude         ###   ########.fr       */
+/*   Updated: 2025/12/08 09:56:35 by ldevoude         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static void add_prompt_user(std::string &prompt, std::string message){
     prompt.clear();
     while(prompt.empty()){
         std::cout<<message;
-        std::getline(std::cin, prompt);
+        if (!std::getline(std::cin, prompt))
+            exit(1);
     }
 }
 
