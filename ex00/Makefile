@@ -23,7 +23,7 @@ $(NAME): Makefile $(OBJS) | $(EXEC_DIR)
 	echo "$(RESET)"
 
 
-$(OBJS_DIR)%.o: $(SRCSDIR)%.cpp | $(OBJS_DIR)
+$(OBJS_DIR)%.o: $(SRCSDIR)%.cpp Makefile config.mk megaphone.mk | $(OBJS_DIR)
 	mkdir -p $(dir $@)
 	echo "$(PURPLE)Compiling $<...$(RESET)"
 	$(CC) $(CFLAGS) $(CPP) $(CPPFLAGS) -c -o $@ $<	

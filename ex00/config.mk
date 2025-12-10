@@ -1,9 +1,9 @@
 NAME            := megaphone
-EXEC			:= exec/$(NAME)
+EXEC			:= bin/$(NAME)
 OBJS_DIR        := .objs/
-EXEC_DIR        := exec/
+EXEC_DIR        := bin/
 
-CC              := c++
+CC              := c++ -Wall -Wextra -Werror
 CPP      		:= -std=c++98
 MAKE            := make
 RM              := rm -f
